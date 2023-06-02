@@ -8,21 +8,25 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<!-- datasource connection pool -->
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
-	  <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
-	  <property name="jdbcUrl"    value="jdbc:oracle:thin:@127.0.0.1:1521:xe" />
+	  <property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" />
+	  <property name="jdbcUrl"    value="jdbc:log4jdbc:oracle:thin:@127.0.0.1:1521:xe" />
 	  <property name="username"   value="hr" />
 	  <property name="password"   value="hr" />
 	</bean>
 	
+	<!-- 아래는 커넥션 풀을 만듦  위에 정보들은 커넥션 풀을 만들때 필요한 정보들.-->
 	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" 
 	      destroy-method="close">
 	  <constructor-arg ref="hikariConfig" />
 	</bean>
 	
+	<!-- sql 결과를 넘겨준다. -->
 	<!-- mybatis  SqlSessionFactory -->
 	<bean class="org.mybatis.spring.SqlSessionFactoryBean">
 	  <property name="dataSource" ref="dataSource"/>
+	  <property name="configLocation" value="classpath:mybatis-config.xml"/> <!-- 컴피그 파일의 위치짖정 -->
 	</bean>
 	
+	<!--  -->
 	<mybatis-spring:scan base-package="com.yedam.app.**.mapper"/>
 </beans>

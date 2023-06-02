@@ -4,7 +4,16 @@ import lombok.Data;
 
 @Data
 public class EmpVO {
-	String employee_id;
-	String first_name;
-	String last_name;
+	String employeeId;
+	String firstName;
+	String lastName;
+	String email;
+	String hireDate;
+	String jobId;
+	String departmentId;
+	String orderColumn;
+	
+	String[] getDeptArr() {
+		return departmentId.split(",");
+	}
 }	
