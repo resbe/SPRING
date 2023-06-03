@@ -20,6 +20,7 @@ import com.yedam.app.emp.service.EmpVO;
 			// 스프링 디스패처서블릿에서 호출할 수 있도록
 			// 커멘드 타입으로 만들어 줌 
 			// @Component 상속
+			// class 위에 있어야 함.
 public class EmpController {
 	
 	@Autowired EmpMapper empMapper;

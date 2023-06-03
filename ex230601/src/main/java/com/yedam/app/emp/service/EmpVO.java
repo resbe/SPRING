@@ -15,5 +15,5 @@ public class EmpVO {
 	
 	String[] getDeptArr() {
 		return departmentId.split(",");
-	}
+	}  // 검색할때 쓰는것.
 }	

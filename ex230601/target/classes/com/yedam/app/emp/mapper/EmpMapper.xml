@@ -3,6 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.yedam.app.emp.mapper.EmpMapper">
+  	
   	<sql id="empWhere">
   		<where>
   		<if test="departmentId != null and departmentId !=''">
@@ -94,6 +95,8 @@
   		update employees set
   			   first_name=#{firstName}, 
   			   last_name=#{lastName},
+  			   department_id=#{departmentId},
+  			   job_id=#{jobId},
   			   email=#{email} 
   			   where employee_id=#{employeeId}
   	</update>

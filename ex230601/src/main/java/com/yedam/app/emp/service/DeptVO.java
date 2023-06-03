@@ -6,6 +6,11 @@ import lombok.Data;
 public class DeptVO {
 	String departmentId;
 	String departmentName;
-	String manger_id;
+	String managerId;
 	String locationId;
+	String orderColumn;
+	
+	String[] getDeptArr() {
+		return departmentId.split(",");
+	}
 }

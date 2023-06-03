@@ -16,24 +16,21 @@
 </style>
 </head>
 <body>
-<h3>사원등록</h3>
- <form action="empInsert" method="post">
+<h3>부서등록</h3>
+ <form action="deptInsert" method="post">
  <div>
-	lname*<input name="lastName"><br>
-	hiredate<input name="hireDate"><br>
-	email<input name="email"><br>
-	</div>
-	departmentId<select name="departmentId"><br>
+	부서이름<input name="departmentName"><br>
+	매니저<input name="mnagerId"><br>
+	locationtId<select name="locationId"><br>
 	<option value="">--선택--
-	<c:forEach items="${departments }" var="dept">
-		<option value="${ dept.departmentId}">${dept.departmentName }</option>
+	<c:forEach items="${locations }" var="location">
+		<option value="${ location.locationId}">${location.CITY }</option>
 	</c:forEach>
 	</select><br>
-	jobId
-	<c:forEach items="${jobs }" var="job">
-		<input type="radio" name="jobId" value="${job.jobId}">${job.jobTitle }
-	</c:forEach><br>
 	<button>저장</button>
 </form>
+<script>
+console.log("${locations}");
+</script>
 </body>
 </html>

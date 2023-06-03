@@ -26,12 +26,13 @@
 	</div>
 	departmentId
 	<c:forEach items="${departments }" var="dept">
-		<input type="radio" name="departmentId"  value="${ dept.departmentId}">${dept.departmentName }</radio>
+		<input type="radio" name="departmentId" value="${ dept.departmentId}" <c:if test="${ emp.departmentId == dept.departmentId }"> checked </c:if>>
+		${dept.departmentName }
 	</c:forEach></br>
 	jobId<select name="jobId"><br>
 	<option value="">--선택--
 	<c:forEach items="${jobs }" var="job">
-		<option value="${job.jobId}">${job.jobTitle }</option>
+		<option  value="${job.jobId}" <c:if test="${ emp.jobId == job.jobId }"> selected </c:if>>${job.jobTitle }</option>
 	</c:forEach></select><br>
 	<button>저장</button>
 </form>
