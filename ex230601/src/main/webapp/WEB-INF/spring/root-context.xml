@@ -24,7 +24,7 @@
 	<!-- mybatis  SqlSessionFactory -->
 	<bean class="org.mybatis.spring.SqlSessionFactoryBean">
 	  <property name="dataSource" ref="dataSource"/>
-	  <property name="configLocation" value="classpath:mybatis-config.xml"/> <!-- 컴피그 파일의 위치짖정 -->
+	  <property name="configLocation" value="classpath:mybatis-config.xml"/> <!-- 컴피그 파일의 위치지정 -->
 	</bean>
 	
 	<!--  -->

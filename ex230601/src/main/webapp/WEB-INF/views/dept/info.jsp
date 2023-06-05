@@ -1,0 +1,32 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>부서 정보</title>
+</head>
+<body>
+	<form>
+		<div>
+			<label for="id">부서번호</label>
+			<input type="number" id="id" name="departmentId" value="${deptInfo.departmentId }" readonly>
+		</div>
+		<div>
+			<label for="name">부서이름</label>
+			<input type="text" id="name" name="departmentName" value="${deptInfo.departmentName}">
+		</div>
+		<div>
+			<label for="mId">매니저 번호</label>
+			<input type="number" id="mId" name="managerId" value="${deptInfo.managerId }">
+		</div>
+				<div>
+			<label for="lId">지역 번호</label>
+			<input type="number" id="lId" name="locationId" value="${deptInfo.locationId }">
+		</div>
+		<button type="submit">수정</button>
+		<button type="button">목록</button>
+	</form>
+
+</body>
+</html>
