@@ -7,7 +7,7 @@
 <title>부서 정보</title>
 </head>
 <body>
-	<form>
+	<form name="frm" onsubmit="return false">
 		<div>
 			<label for="id">부서번호</label>
 			<input type="number" id="id" name="departmentId" value="${deptInfo.departmentId }" readonly>
@@ -27,6 +27,34 @@
 		<button type="submit">수정</button>
 		<button type="button">목록</button>
 	</form>
+	<script>
 
+		document.querySelector('button[type="submit"]').addEventListener('click',function(e){
+			let data = [{
+				'departmentId' : frm.departmentId.value,
+				'departmentName' : frm.departmentName.value,
+				'managerId' : frm.managerId.value,
+				'locationId' : frm.locationId.value
+			}]
+
+			fetch('deptUpdate',{
+				method : 'post',
+				headers : {
+					'content-type' : 'application/json'
+				},
+				body : JSON.stringify(data)	
+			})
+			.then(response => response.json())
+			.then(result => {
+				if(result != "" && result != null){
+						let msg = `결과 : ${result.result} \n 
+							   	   성공 : ${result.success}\n
+							  	   대상 : ${result.deptList[0]}`;
+					alert(msg);
+				}
+			})
+			.catch(err => console.log(err));
+		})
+	</script>
 </body>
 </html>

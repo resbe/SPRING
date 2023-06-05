@@ -17,6 +17,7 @@
 		<!-- 전체조회 -->
 		<select id="selectAllDept" resultType="DeptInfoVO">
 			<include refid="deptSelect"></include>
+			order by department_id
 		</select>
 		
 		<!-- 단건조회 -->

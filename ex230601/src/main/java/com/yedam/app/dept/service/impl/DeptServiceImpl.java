@@ -42,7 +42,7 @@ public class DeptServiceImpl implements DeptService {
 		int count = 0;
 		
 		for(DeptInfoVO deptInfo : deptVO) {
-			int res = deptMapper.updatetDeptInfo(deptInfo);
+			int res = deptMapper.updateDeptInfo(deptInfo);
 			if(res > 0) {
 				// 정상적으로 수정이 되었을 경우
 				count += 1;
@@ -66,7 +66,7 @@ public class DeptServiceImpl implements DeptService {
 	public int deletDeptList(List<DeptInfoVO> deptVO) {
 		int count = 0;
 		for(DeptInfoVO deptInfo : deptVO) {
-			count += deptMapper.deletDeptInfo(deptInfo.getDepartmentId());
+			count += deptMapper.deleteDeptInfo(deptInfo.getDepartmentId());
 		}
 		return count;
 	}
