@@ -82,10 +82,17 @@ public class DeptInfoController {
 	
 	//@RequestBody : JSON 포맷을 사용하는 경우
 	//				 -> content-type : 'application/json'
-	@PostMapping("deptUpdate") 
+	//@PostMapping("deptUpdate") 
 	@ResponseBody
 	public Map<String,Object> deptUpdate(@RequestBody List<DeptInfoVO> deptVO, RedirectAttributes rtt ){
 		return deptService.updateDeptList(deptVO);
+	}
+	
+	@PostMapping("deptUpdate") 
+	@ResponseBody
+	public String deptUpdateText(@RequestBody List<DeptInfoVO> deptVO, RedirectAttributes rtt ){
+		Map<String,Object> map = deptService.updateDeptList(deptVO);
+		return "success";
 	}
 //	public String deptUpdate(@RequestBody List<DeptInfoVO> deptVO, RedirectAttributes rtt ) {
 //		Map<String,Object> map = deptService.updateDeptList(deptVO);

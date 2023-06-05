@@ -44,7 +44,9 @@
 				},
 				body : JSON.stringify(data)	
 			})
-			.then(response => response.json())
+			.then(response => response.text())
+			.then(data => console.log(data))
+			/* .then(response => response.json())
 			.then(result => {
 				if(result != "" && result != null){
 						let msg = `결과 : ${result.result} \n 
@@ -52,7 +54,7 @@
 							  	   대상 : ${result.deptList[0]}`;
 					alert(msg);
 				}
-			})
+			}) */
 			.catch(err => console.log(err));
 		})
 	</script>
