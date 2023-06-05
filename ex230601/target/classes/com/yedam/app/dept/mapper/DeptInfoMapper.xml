@@ -52,8 +52,8 @@
 		<update id="updateDeptInfo" parameterType="DeptInfoVO">
 			update departments
 			 <set>
-			 	<if test="departmentName != null and departmentName.equals('')">
-			 		department_name=#{departmentName}
+			 	<if test="departmentName != null and !departmentName.equals('')">
+			 		department_name='test'
 			 	</if> 
 			 	<if test="managerId > 0">
 			 		,manager_id=#{managerId}
@@ -73,5 +73,4 @@
 			delete from departments 
 				   where department_id = #{departmentId}
 		</delete>
-		
   </mapper>

@@ -70,5 +70,6 @@ public class DeptServiceImpl implements DeptService {
 		}
 		return count;
 	}
+	
 
 }

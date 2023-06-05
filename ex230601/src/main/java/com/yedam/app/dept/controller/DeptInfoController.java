@@ -91,6 +91,7 @@ public class DeptInfoController {
 	@PostMapping("deptUpdate") 
 	@ResponseBody
 	public String deptUpdateText(@RequestBody List<DeptInfoVO> deptVO, RedirectAttributes rtt ){
+		System.out.println(deptVO);
 		Map<String,Object> map = deptService.updateDeptList(deptVO);
 		return "success";
 	}
