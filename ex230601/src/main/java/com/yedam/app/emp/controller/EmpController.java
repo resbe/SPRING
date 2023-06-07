@@ -32,6 +32,7 @@ public class EmpController {
 		model.addAttribute("empList", empMapper.selectList(vo));
 		return "emp/empList";
 	}
+	// @ModelAttribute 보낸데이터를 유지해야할때 쓴다.
 	
 	//사원등록 페이지로 이동
 	@GetMapping("empInsert")
