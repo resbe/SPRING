@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+  <configuration>
+  	<settings>
+  		<setting name="mapUnderscoreToCamelCase" value="true"/> <!-- 카멜케이스 적용 -->
+  		<setting name="jdbcTypeForNull" value="VARCHAR"/> <!-- NULL 처리 지정 -->
+  	</settings>
+  	<typeAliases> 
+  		<package name="com.yedam.app"/> <!--  해당 패키지 자동 별칭 지정 -->
+  	</typeAliases>
+  	<typeHandlers> <!-- DB에서 가져올때 데이터 타입 설정 -->
+  		<typeHandler javaType="java.sql.Date" handler="org.apache.ibatis.type.DateTypeHandler"/>
+  	</typeHandlers>
+  </configuration>
