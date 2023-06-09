@@ -3,11 +3,13 @@ package com.yedam.app.board.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import com.yedam.app.board.mapper.BoardMapper;
 
 @Service
+@Primary
 public class BoardServiceImpl implements BoardService {
 	
 	@Autowired
@@ -46,11 +48,11 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public int deleteBoardInfo(BoardVO boardVO) {
+	public int deleteBoardInfo(int boardVO) {
 		int result = boardMapper.deleteBoard(boardVO);
 		
 		if(result > 0) {
-			return boardVO.getBno();
+			return boardVO;
 		}else {
 			return -1;
 		}

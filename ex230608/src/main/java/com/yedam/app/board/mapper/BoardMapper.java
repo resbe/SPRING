@@ -14,5 +14,5 @@ public interface BoardMapper {
 	//수정
 	public int updateBoard(BoardVO boardVO);
 	//삭제
-	public int deleteBoard(BoardVO boardVO);
+	public int deleteBoard(int boardVO);
 }

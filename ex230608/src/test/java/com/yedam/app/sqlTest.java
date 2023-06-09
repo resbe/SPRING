@@ -54,7 +54,7 @@ public class sqlTest {
 	//@Test
 	public void delete() {
 		boardVO.setBno(3);
-		boardMapper.deleteBoard(boardVO);
+//		boardMapper.deleteBoard(boardVO);
 	}
 
 }

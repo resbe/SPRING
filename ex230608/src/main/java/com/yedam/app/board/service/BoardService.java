@@ -12,5 +12,5 @@ public interface BoardService {
 	//수정 - 수정 글 번호 반환 / 실패 = -1
 	public int updateBoardInfo(BoardVO boardVO);
 	//삭제 - 수정 글 번호 반환 / 실패 = -1
-	public int deleteBoardInfo(BoardVO boardVO);
+	public int deleteBoardInfo(int boardVO);
 }

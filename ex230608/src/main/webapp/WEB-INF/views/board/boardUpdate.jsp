@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +8,7 @@
 <title>게시글 수정</title>
 </head>
 <body>
-	<form name="updateForm" onsubmit="return false">
+	<form name="updateForm" action="boardUpdate" method="POST" onsubmit="return false" >
 		<div>
 			<h3>게시글 수정</h3>
 		</div>
@@ -36,15 +37,33 @@
 			</tr>
 			<tr>
 				<th>수정날짜</th>
-				<td><input type="date" name="updatedate"></td>
-			</tr>
+				<td><input type="date" name="updatedate" value='<fmt:formatDate value="${board.updatedate}" pattern="yyyy-mm-dd"/>'></td>
+			</tr> 
 		</table>
 		<button type="submit" id="updateBtn">수정완료</button>
-		<button type="button" onclick="location.href='boardList'">취소</button>
+		<button type="button" onclick="location.href='boardInfo?bno=${board.bno}'">취소</button>
 
 		<script>
+			function updateAjax(e){
+				let boardData = new FormData(document.querySelector("[name='updateForm']"));
+				
+				fetch(updateForm.action,{
+					method : 'post',
+					body : boardData
+				})
+				.then(response => response.json())
+				.then(data =>{
+					let message = '결과 :' + data.result 
+								   +', 게시글 번호 :' + data['board_no'];
+					alert(message);
+				
+				})
+				.catch(err => console.log(err));
+			}
+			
+			document.querySelector('button[type="submit"]').addEventListener('click',updateAjax);
 
-			document.querySelector('#updateBtn').addEventListener('click', function(){
+			/* document.querySelector('#updateBtn').addEventListener('click', function(){
 				
 			let data = {
 				'bno' : updateForm.bno.value,
@@ -68,7 +87,7 @@
 					alert(result)		
 					location.href="boardList"
 				})
-			})
+			}) */
 		</script>
 	</form>
 </body>
