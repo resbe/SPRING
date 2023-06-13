@@ -6,21 +6,20 @@
 		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-5.2.xsd">
 
 	 <security:http pattern="/css/**" security="none"/>
+	 <!-- 위에서 아래로 순차대로 적용됨. -->
 	 <security:http>
 		<security:intercept-url pattern="/top.jsp" access="permitAll()"/>
 		<security:intercept-url pattern="/admin/**" access="hasAuthority('ROLE_ADMIN')"/>
 		<security:intercept-url pattern="/**" access="isAuthenticated()"/>
-		<security:form-login default-target-url="/top.jsp"/>
+		<security:form-login default-target-url="/top.jsp" always-use-default-target="true"/>
 		<security:logout logout-url="/logout" logout-success-url="/top.jsp"/>
-		<security:csrf disabled="true"/>
+		<!-- <security:csrf disabled="true"/> -->
 	</security:http>
 	
+	<bean id="userDetailService" class="com.yedam.app.user.service.CustomerUserDetailsService" />
+	
 	<security:authentication-manager>
-		<security:authentication-provider>
-			<security:user-service>
-				<security:user name="user" password="{noop}1234" authorities="ROLE_USER"/>
-				<security:user name="admin" password="{noop}1234" authorities="ROLE_ADMIN"/>
-			</security:user-service>
+		<security:authentication-provider user-service-ref="userDetailService">
 		</security:authentication-provider>
 	</security:authentication-manager>
 </beans>
